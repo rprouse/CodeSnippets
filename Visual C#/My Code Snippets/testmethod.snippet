@@ -6,9 +6,11 @@
         <SnippetType>Expansion</SnippetType>
       </SnippetTypes>
       <Title>NUnit Test Method</Title>
-      <Shortcut>ntest</Shortcut>
-      <Description>Code snippet for a test method</Description>
       <Author>Rob Prouse</Author>
+      <Description>Code snippet for a test method</Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>ntest</Shortcut>
     </Header>
     <Snippet>
       <Imports>
@@ -22,17 +24,23 @@
         </Reference>
       </References>
       <Declarations>
-        <Literal>
+        <Literal Editable="true">
           <ID>name</ID>
           <ToolTip>Replace with the name of the test method</ToolTip>
           <Default>TestMethod</Default>
+          <Function>
+          </Function>
         </Literal>
-          <Literal Editable="false">
-            <ID>Test</ID>
-            <Function>SimpleTypeName(global::NUnit.Framework.Test)</Function>
-          </Literal>
+        <Literal Editable="false">
+          <ID>Test</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>
+          </Default>
+          <Function>SimpleTypeName(global::NUnit.Framework.Test)</Function>
+        </Literal>
       </Declarations>
-      <Code Language="csharp"><![CDATA[[$Test$]
+      <Code Language="csharp" Delimiter="$"><![CDATA[      [$Test$]
       public void $name$()
       {
           $end$
