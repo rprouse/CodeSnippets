@@ -5,28 +5,54 @@
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
       </SnippetTypes>
-      <Title>inotifypropertychanged</Title>
+      <Title>INotifyPropertyChanged</Title>
       <Author>Bentley Systems</Author>
       <Description>
       </Description>
       <HelpUrl>
       </HelpUrl>
-      <Shortcut>npc</Shortcut>
+      <Shortcut>inpc</Shortcut>
     </Header>
     <Snippet>
-      <Code Language="csharp" Delimiter="$"><![CDATA[        #region INotifyPropertyChanged
+      <Declarations>
+        <Literal Editable="false">
+          <ID>CallerMemberName</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>
+          </Default>
+          <Function>SimpleTypeName(global::System.Runtime.CompilerServices.CallerMemberNameAttribute)</Function>
+        </Literal>
+        <Literal Editable="false">
+          <ID>PropertyChangedEventHandler</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>
+          </Default>
+          <Function>SimpleTypeName(global::System.ComponentModel.PropertyChangedEventHandler)</Function>
+        </Literal>
+        <Literal Editable="false">
+          <ID>PropertyChangedEventArgs</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>
+          </Default>
+          <Function>SimpleTypeName(global::System.ComponentModel.PropertyChangedEventArgs)</Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[#region INotifyPropertyChanged
 
-        public event PropertyChangedEventHandler PropertyChanged;
+public event $PropertyChangedEventHandler$ PropertyChanged;
 
-        protected void NotifyPropertyChanged([CallerMemberName]string propertyName = null)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
+protected void NotifyPropertyChanged([$CallerMemberName$]string propertyName = null)
+{
+    if (PropertyChanged != null)
+    {
+        PropertyChanged(this, new $PropertyChangedEventArgs$(propertyName));
+    }
+}
 
-        #endregion]]></Code>
+#endregion]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

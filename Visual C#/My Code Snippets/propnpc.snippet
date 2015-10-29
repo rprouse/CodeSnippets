@@ -5,14 +5,13 @@
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
       </SnippetTypes>
-      <Title>SnippetFile1</Title>
+      <Title>Notify Change Property</Title>
       <Author>Bentley Systems</Author>
       <Description>
       </Description>
       <HelpUrl>
       </HelpUrl>
-      <Shortcut>
-      </Shortcut>
+      <Shortcut>propnc</Shortcut>
     </Header>
     <Snippet>
       <Declarations>
@@ -38,19 +37,19 @@
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp" Delimiter="$"><![CDATA[        $type$ $field$;
-        public $type$ $property$
+      <Code Language="csharp" Delimiter="$"><![CDATA[$type$ $field$;
+public $type$ $property$
+{
+    get { return $field$; }
+    set
+    {
+        if($field$ != value)
         {
-            get { return $field$; }
-            set
-            {
-                if($field$ != value)
-                {
-                    $field$ = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }]]></Code>
+            $field$ = value;
+            NotifyPropertyChanged();
+        }
+    }
+}]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>
